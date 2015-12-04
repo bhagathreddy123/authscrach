@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Authscrach</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="container">
+<% if current_user %>
+<%= current_user.email %>
+<%= link_to "Signout", log_out_path%>
+<%else%>
+<%= link_to "Signin", sign_in_path %>
+<%= link_to "Signup", sign_up_path %>
+<%end%>
+<%= yield %>
+
+</body>
+</html>
+
